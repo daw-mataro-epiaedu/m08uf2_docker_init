@@ -72,15 +72,10 @@ CREATED: README.Docker.md
 
 Per aixecar el contenidor, només cal executar la comanda `docker compose up --build`:
 
-### Deploying your application to the cloud
+### Desplegar l'aplicació al núvol
 
-First, build your image, e.g.: `docker build -t myapp .`.
-If your cloud uses a different CPU architecture than your development
-machine (e.g., you are on a Mac M1 and your cloud provider is amd64),
-you'll want to build the image for that platform, e.g.:
-`docker build --platform=linux/amd64 -t myapp .`.
+Primer, cal construir la imatge, per exemple: `docker build -t myapp .`
 
-Then, push it to your registry, e.g. `docker push myregistry.com/myapp`.
+Si el núvol utilitza una arquitectura de CPU diferent a la del teu ordinador de desenvolupament (per exemple, si estàs en un Mac M1 i el teu proveïdor de núvol és amd64), voldràs construir la imatge per a aquesta plataforma, per exemple: `docker build --platform=linux/amd64 -t myapp .`. Cal assegurar-se que teniu el vostre Docker configurat per desplegar imatges usant `containerd`.
 
-Consult Docker's [getting started](https://docs.docker.com/go/get-started-sharing/)
-docs for more detail on building and pushing.
+A continuació, puja-la al teu registre, per exemple: `docker push myregistry.com/myapp`.
