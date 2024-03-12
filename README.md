@@ -10,7 +10,7 @@ El primer pas serà executar la comanda `docker init`. A continuació, quan ens 
 docker init
 ```
 
-```bash
+```quote
 Welcome to the Docker Init CLI!
 
 This utility will walk you through creating the following files with sensible defaults for your project:
@@ -68,14 +68,28 @@ CREATED: README.Docker.md
   docker compose up --build
 ```
 
-### Aixecar el contenidor
+### Aixecar l'entorn
 
-Per aixecar el contenidor, només cal executar la comanda `docker compose up --build`:
+Per aixecar l'entorn, només cal executar la comanda `docker compose up --build`:
 
 ### Desplegar l'aplicació al núvol
 
-Primer, cal construir la imatge, per exemple: `docker build -t myapp .`
+Primer, cal construir la imatge: 
 
-Si el núvol utilitza una arquitectura de CPU diferent a la del teu ordinador de desenvolupament (per exemple, si estàs en un Mac M1 i el teu proveïdor de núvol és amd64), voldràs construir la imatge per a aquesta plataforma, per exemple: `docker build --platform=linux/amd64 -t myapp .`. Cal assegurar-se que teniu el vostre Docker configurat per desplegar imatges usant `containerd`.
+```bash
+docker build -t myapp .
+```
 
-A continuació, puja-la al teu registre, per exemple: `docker push myregistry.com/myapp`.
+Si el núvol utilitza una arquitectura de CPU diferent a la del teu ordinador de desenvolupament (per exemple, si estàs en un Mac M1 i el teu proveïdor de núvol és amd64), voldràs construir la imatge per a aquesta plataforma, per exemple: 
+
+```bash
+docker build --platform=linux/amd64 -t dockerhubID/myapp:vXX -t dockerhubID/myapp:latest .
+```
+
+Cal assegurar-se que teniu el vostre Docker configurat per desplegar imatges usant `containerd`.
+
+A continuació, puja-la al teu registre: 
+
+```bash
+docker push -a dockerhubID/myapp`.
+```
